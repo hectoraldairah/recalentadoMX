@@ -25,22 +25,24 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <iframe
+        src={require("../components/baileSanta.mp3")}
+        allow="autoplay"
+        id="iframeAudio"
+        style={{ display: "none" }}
+      ></iframe>
+      <audio controls autoPlay loop style={{ display: "none" }}>
+        <source
+          typeof="audio/mp3"
+          src={require("../components/baileSanta.mp3")}
+        ></source>
+      </audio>
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
         }}
       >
         <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
       </div>
     </>
   )
